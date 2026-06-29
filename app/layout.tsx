@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import { CartProvider } from '@/lib/cart-context'
 import CartDrawer from '@/components/CartDrawer'
 
-const OG_IMAGE = 'https://imgix.cosmicjs.com/5b973020-73f6-11f1-a87f-d72293b1048a-generated-1782763736063.jpg'
+const OG_IMAGE = 'https://imgix.cosmicjs.com/cbe33450-73f6-11f1-a87f-d72293b1048a-generated-1782763924467.jpg'
 const SITE_URL = 'https://cosmic-store-rbb9.vercel.app'
 
 export const metadata: Metadata = {
