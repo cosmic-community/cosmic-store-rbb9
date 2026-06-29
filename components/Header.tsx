@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import CartButton from '@/components/CartButton'
 
 export default function Header() {
   return (
@@ -30,7 +31,7 @@ export default function Header() {
             <Link href="/products" className="md:hidden hover:text-accent transition-colors">
               Shop
             </Link>
-            <span className="text-white/60">Cart (0)</span>
+            <CartButton />
           </div>
         </div>
       </div>

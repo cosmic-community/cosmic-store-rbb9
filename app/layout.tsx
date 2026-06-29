@@ -3,6 +3,8 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CosmicBadge from '@/components/CosmicBadge'
+import { CartProvider } from '@/lib/cart-context'
+import CartDrawer from '@/components/CartDrawer'
 
 export const metadata: Metadata = {
   title: 'Cosmic Store — Official Swag',
@@ -34,10 +36,13 @@ export default function RootLayout({
               <script defer src="https://insights.cosmicinsights.dev/script.js" data-project="6a42be0a903866d6a2d3207d"></script>
       </head>
       <body className="font-sans bg-white text-ink antialiased">
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-        <CosmicBadge bucketSlug={bucketSlug} />
+        <CartProvider>
+          <Header />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+          <CartDrawer />
+          <CosmicBadge bucketSlug={bucketSlug} />
+        </CartProvider>
       </body>
     </html>
   )
