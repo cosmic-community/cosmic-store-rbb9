@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import CosmicBadge from '@/components/CosmicBadge'
 import { CartProvider } from '@/lib/cart-context'
 import CartDrawer from '@/components/CartDrawer'
 
@@ -41,7 +40,6 @@ export default function RootLayout({
           <main className="min-h-screen">{children}</main>
           <Footer />
           <CartDrawer />
-          <CosmicBadge bucketSlug={bucketSlug} />
         </CartProvider>
       </body>
     </html>
