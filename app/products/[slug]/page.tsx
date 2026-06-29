@@ -3,7 +3,7 @@ import { getProductBySlug, getMetafieldValue, formatPrice } from '@/lib/cosmic'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import ProductGallery from '@/components/ProductGallery'
-import type { ProductSize } from '@/types'
+import AddToCartButton from '@/components/AddToCartButton'
 
 export const revalidate = 60
 
@@ -24,6 +24,8 @@ export default async function ProductPage({
   const price = product.metadata?.price
   const sizes = product.metadata?.available_sizes ?? []
   const collection = product.metadata?.collection
+
+  const featuredImage = product.metadata?.featured_image
 
   const images = [
     product.metadata?.featured_image,
@@ -66,30 +68,13 @@ export default async function ProductPage({
             </p>
           )}
 
-          {sizes.length > 0 && (
-            <div className="mt-8">
-              <h3 className="text-sm font-semibold text-ink uppercase tracking-wide mb-3">
-                Available Sizes
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {sizes.map((size: ProductSize) => (
-                  <span
-                    key={size}
-                    className="min-w-[3rem] text-center border border-gray-300 px-4 py-2 text-sm font-medium text-ink rounded hover:border-ink transition-colors"
-                  >
-                    {size}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <button
-            type="button"
-            className="mt-10 w-full bg-ink text-white py-4 font-medium hover:bg-carbon transition-colors rounded"
-          >
-            Add to Cart
-          </button>
+          <AddToCartButton
+            productId={product.id}
+            title={name}
+            price={price}
+            image={featuredImage?.imgix_url}
+            sizes={sizes}
+          />
         </div>
       </div>
     </div>
