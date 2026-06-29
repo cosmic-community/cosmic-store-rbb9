@@ -1,6 +1,6 @@
 # Cosmic Store
 
-![App Preview](https://imgix.cosmicjs.com/cbe33450-73f6-11f1-a87f-d72293b1048a-generated-1782763924467.jpg?w=1200&h=630&fit=crop&auto=format,compress)
+![App Preview](https://imgix.cosmicjs.com/fe561310-73fd-11f1-a87f-d72293b1048a-ai-gemini-3-1-flash-image-preview-1782767015544.jpeg?w=1200&h=630&fit=crop&auto=format,compress)
 
 A sleek, modern e-commerce storefront for Cosmic company swag — built with Next.js 16 and powered by [Cosmic](https://www.cosmicjs.com). Browse hoodies, mugs, t-shirts, stickers, and bundles in a dark, minimalist design inspired by premium merch shops.
 
