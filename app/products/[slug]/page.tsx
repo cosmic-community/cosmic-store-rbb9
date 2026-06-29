@@ -1,9 +1,11 @@
 // app/products/[slug]/page.tsx
 import { getProductBySlug, getMetafieldValue, formatPrice } from '@/lib/cosmic'
+import { getBlocks, resolveBlocks } from '@/lib/blocks'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import ProductGallery from '@/components/ProductGallery'
 import AddToCartButton from '@/components/AddToCartButton'
+import RichTextRenderer from '@/components/RichTextRenderer'
 
 export const revalidate = 60
 
@@ -13,14 +15,15 @@ export default async function ProductPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const product = await getProductBySlug(slug)
+  const [product, blocks] = await Promise.all([getProductBySlug(slug), getBlocks()])
 
   if (!product) {
     notFound()
   }
 
   const name = getMetafieldValue(product.metadata?.name) || product.title
-  const description = getMetafieldValue(product.metadata?.description)
+  const rawDescription = getMetafieldValue(product.metadata?.description)
+  const description = rawDescription ? resolveBlocks(rawDescription, blocks) : ''
   const price = product.metadata?.price
   const sizes = product.metadata?.available_sizes ?? []
   const collection = product.metadata?.collection
@@ -63,9 +66,9 @@ export default async function ProductPage({
           )}
 
           {description && (
-            <p className="text-gray-600 mt-6 leading-relaxed whitespace-pre-line">
-              {description}
-            </p>
+            <div className="mt-6">
+              <RichTextRenderer content={description} />
+            </div>
           )}
 
           <AddToCartButton
