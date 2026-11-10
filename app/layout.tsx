@@ -75,6 +75,11 @@ export default function RootLayout({
         {/* Console capture script for dashboard debugging */}
         <script src="/dashboard-console-capture.js" />
         <script defer src="https://insights.cosmicinsights.dev/script.js" data-project="6a42be0a903866d6a2d3207d"></script>
+        <script
+          src="https://www.cosmicjs.com/agent.js"
+          data-key="pk_ec5e5dc70975c3b775c88c3c815ed5fe"
+          async
+        ></script>
       </head>
       <body className="font-sans bg-white text-ink antialiased">
         <CartProvider>
