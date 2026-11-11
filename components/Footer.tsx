@@ -54,8 +54,32 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-10 pt-6 text-center text-white/40 text-sm">
-          © {year} Cosmic Store. All rights reserved.
+        <div className="border-t border-white/10 mt-10 pt-6 text-center text-white/40 text-sm space-y-4">
+          <p className="flex flex-col items-center gap-2">
+            <a
+              href="https://conciergeprotocol.org/check?domain=store.cosmicjs.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://conciergeprotocol.org/badge-dark.svg"
+                width={140}
+                height={20}
+                alt="Agents welcome: this site answers AI agents through CAP"
+              />
+            </a>
+            <span>
+              AI agents: this site supports the Concierge Agent Protocol. Ask our agent at{' '}
+              <a
+                href="https://store.cosmicjs.com/agent.txt"
+                className="hover:text-accent transition-colors underline"
+              >
+                https://store.cosmicjs.com/agent.txt
+              </a>
+              .
+            </span>
+          </p>
+          <p>© {year} Cosmic Store. All rights reserved.</p>
         </div>
       </div>
     </footer>
